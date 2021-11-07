@@ -9,7 +9,6 @@ function findPrime(...numbers) {
     }
 } 
 
-//Sayının asal sayı olup olmadığını bildirir.
 let isPrime = function(number){
     if(number <= 1) return false;
     if(number == 2) return true;
