@@ -1,4 +1,5 @@
 import { BaseLogger, ElasticLogger, MongoLogger } from "../crossCuttingConcerns/logging/logger.js"
+import Customer from "../models/customer.js"
 import User from "../models/user.js"
 import UserService from "../services/userService.js"//Buradaki .. bulunduğun klasörün bir üst klasörüne git demek 
 
@@ -12,9 +13,8 @@ let user2 = new User(2,"Baran","Gökçekli","Muğla")
 userService.add(user1)
 userService.add(user2)
 
-console.log(userService.list())
-console.log(userService.getById(2))
-userService.list()
+//console.log(userService.list())
+//console.log(userService.getById(2))
 
 
 
@@ -27,6 +27,13 @@ console.log(customer.lastName)
 
 console.log("------------------------")
 userService.load()
+
+
+let customerToAdd = new Customer(1,"Seda","Yılmaz","Ankara","fdgdfg");
+customerToAdd.type = "customer"
+
+userService.add(customerToAdd)
 console.log(userService.customers)
 console.log(userService.employees)
 console.log(userService.errors)
+console.log(userService.getCustomersSorted())
